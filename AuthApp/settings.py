@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'auth_app',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +76,20 @@ WSGI_APPLICATION = 'AuthApp.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'authapp',
+        'USER': 'django',
+        'PASSWORD': 'azerty',
+        'HOST': '127.0.0.1',
+        'PORT': '3307',
+    },
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+LOGIN_URL = 'signin'
 
 
 # Password validation
